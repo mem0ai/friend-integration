@@ -71,7 +71,9 @@ def mem0_add(memory: Memory, uid: str):
         }
     ]
     mem0.add(messages, user_id=uid)
-    return {}
+    memories = mem0.search(memory.transcript, user_id=uid)
+    response = [row["memory"] for row in memories]
+    return response
 
 
 # *******************************************************
