@@ -54,4 +54,5 @@ def mem0_add(memory: Memory, uid: str):
     mem0.add(messages, user_id=uid)
     memories = mem0.search(messages, user_id=uid)
     response = [row["memory"] for row in memories]
-    return {"message": response}
+    response_str = "\n".join(response)
+    return {"message": f"User memories: {response_str}"}
